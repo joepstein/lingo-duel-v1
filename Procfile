@@ -1,2 +1,1 @@
-install: npm i
-run: npm run dev
+web: npm run dev
