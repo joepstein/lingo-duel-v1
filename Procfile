@@ -1,1 +1,1 @@
-web:node vite.config.js
+web:node server.js
