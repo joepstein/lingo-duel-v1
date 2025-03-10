@@ -2,11 +2,9 @@
   "name": "lingo-duel",
   "private": true,
   "version": "0.0.0",
-  // "homepage": "https://joepstein.github.io/lingo-duel-v1",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    // "deploy": "gh-pages -d dist",
     "deploy": "",
     "dev": "vite",
     "build": "vite build",
