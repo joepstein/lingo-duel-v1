@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react"
+import spanishVerbData from "/data/spanish-verb-data"
 
 export function LanguageGame(){
 

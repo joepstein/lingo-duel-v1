@@ -26754,3 +26754,5 @@ const spanishVerbData = {
         ]
     }
 }
+
+export default spanishVerbData
