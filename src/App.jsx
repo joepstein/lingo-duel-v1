@@ -10,8 +10,8 @@ export default function App(){
 
     <>
       <Routes>        
-        <Route path="/" element={<Intro />}/ >
-        <Route path="/conjugation" element={<LanguageGame />}/ >
+        <Route path="/" element={<Intro />} />
+        <Route path="/conjugation" element={<LanguageGame />} />
       </Routes>
     </>
 
