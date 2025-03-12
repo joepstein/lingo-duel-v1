@@ -10,19 +10,19 @@ export function Intro(){
 	useEffect(() => {
 
 		setTimeout(() => {
-	      overlayRef.current.classList.add('animate')
+	      overlayRef.current.classList.add('animate') // 1s
+
+	        setTimeout(() => {
+		    	overlayRef.current.classList.remove('animate')
+		    	initialContentRef.current.style.display = 'none'
+		    	revealedContentRef.current.style.display = 'block'
+		    	overlayRef.current.classList.add('unanimate') // 1s
+
+		    	setTimeout(() => {
+			    	overlayRef.current.style.display = 'none'
+			    }, 1050)
+	    	}, 1300)
 	    }, 500)
-
-	    setTimeout(() => {
-	    	overlayRef.current.classList.remove('animate')
-	    	initialContentRef.current.style.display = 'none'
-	    	revealedContentRef.current.style.display = 'block'
-	    	overlayRef.current.classList.add('unanimate')
-	    }, 1800)
-
-	    setTimeout(() => {
-	    	overlayRef.current.style.display = 'none'
-	    }, 2850)
 
 	}, [])
 
@@ -36,7 +36,7 @@ export function Intro(){
 				</div>
 				<div ref={revealedContentRef} class='revealed-content'>
 					<p>Let's do 10 quick questions to assess your skill level before we begin!</p>
-					<Link to='conjugation' role='button'>Continue</Link>
+					<Link to='skill-choice' role='button'>Continue</Link>
 				</div>
 				<div ref={overlayRef} id='overlay'></div>
 			</section>

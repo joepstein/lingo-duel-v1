@@ -4,7 +4,7 @@
 }
 
 body {
-  background: #333;
+  background: #0A092D;
   color: hsl(200, 100%, 90%);
   max-width: 300px;
   max-height: 600px;
@@ -44,6 +44,50 @@ li:hover, li[data-selected="true"] {
   cursor: pointer;
 }
 
+a[role='button']{
+  display: block;
+  cursor: pointer;
+
+  width: 250px;
+  height: 55px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #382AD6;
+  padding: 18px 0;
+
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue';
+  text-decoration: none;
+}
+
+a[role='disabled-button']{
+  display: block;
+  cursor: not-allowed;
+  
+  width: 250px;
+  height: 55px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgb(128,128,128);
+  padding: 18px 0;
+
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue';
+  text-decoration: none;
+}
+
+/*
+
+######
+## Welcome Page CSS
+######
+
+*/
+
 #welcome-page{
     position: relative;
 }
@@ -73,19 +117,6 @@ li:hover, li[data-selected="true"] {
   top: 100%;
   left: 50%;
   transform: translate(-50%, -100%);
-
-  width: 250px;
-  height: 55px;
-  text-align: center;
-  border-radius: 10px;
-  background-color: #382AD6;
-  padding: 18px 0;
-
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: 'Helvetica Neue';
-  text-decoration: none;
 }
 
 #home-icon{
@@ -95,7 +126,7 @@ li:hover, li[data-selected="true"] {
 #overlay{
   width: 100%;
   height: 100%;
-  background-color: #333;
+  background-color: #0A092D;
   position: absolute;
   top: 0%;
   left: 0%;
@@ -121,6 +152,41 @@ li:hover, li[data-selected="true"] {
   from{ opacity: 100%; }
   to{ opacity: 0%; }
 }
+
+
+/*
+
+######
+## Skill Choice Page CSS
+######
+
+*/
+
+#skill-choice-page .content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#skill-choice-page h1{
+  font-size: 16px;
+  text-align: center;
+
+  width: 200px;
+  padding-top: 20px;
+  padding-bottom: 20%;
+}
+
+#skill-choice-page a{
+  margin: 20px;
+}
+
+#skill-choice-page a[role='button']{
+  background-color: #0A092D;
+  border: 1px solid white;
+}
+
+
 
 
 
