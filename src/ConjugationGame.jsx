@@ -3,7 +3,7 @@ import spanishVerbData from "/data/spanish-verb-data"
 
 export function ConjugationGame(){
 
-	const [conjugationGame, setConjugationGame] = useState({ targetVerb : '', conjugatedVerb : '', answerTense : '', elo : 0, tenseList : [], randomTenses : [] })
+	const [conjugationGame, setConjugationGame] = useState({ targetVerb : '', english: '', conjugatedVerb : '', answerTense : '', elo : 0, tenseList : [], randomTenses : [] })
 
 	const contentRef = useRef()
 	const introContentRef = useRef()
@@ -167,9 +167,12 @@ export function ConjugationGame(){
 					<div ref={overlayRef} id='overlay'></div>
 				</div>
 				<div ref={contentRef} className='content'>
-					<h1>{conjugationGame.targetVerb}</h1>
+					<div className='top-info'>
+						<p>1 of 10</p>
+					</div>
+					<h1>Select the correct conjugation for</h1>
+					<p><strong>{conjugationGame.conjugatedVerb}</strong> ({conjugationGame.targetVerb})</p>
 					<form onSubmit={checkAnswer} className="conugationForm">
-						<h2>{conjugationGame.conjugatedVerb}</h2>
 						<ul className="list">
 							{conjugationGame.randomTenses.map((tense, index) => {
 								return(
@@ -185,11 +188,11 @@ export function ConjugationGame(){
 								)
 							})}
 					    </ul>
-					    <button type="submit" className="submit-button">Submit</button>
-					    <p id="question-elo">The last question had a rating of: {questionElo.current}</p>
+					    <button type="submit">Submit</button>
+{/*					    <p id="question-elo">The last question had a rating of: {questionElo.current}</p>
 					    <p id="current-elo">Your current elo is: {playerElo.current}</p>
 					    <p id="prev-answer">Your last answer was: {prevAnswer.current}</p>
-					    <p id="rating-change">You gained/lost: {eloDifference.current} rating points</p>
+					    <p id="rating-change">You gained/lost: {eloDifference.current} rating points</p>*/}
 					</form>
 				</div>
 			</section>

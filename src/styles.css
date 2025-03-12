@@ -5,7 +5,7 @@
 
 body {
   background: #0A092D;
-  color: hsl(200, 100%, 90%);
+  color: white;
   max-width: 300px;
   max-height: 600px;
   margin: 0 auto;
@@ -15,16 +15,6 @@ section {
   width: 300px;
   height: 600px;
   margin: 0 auto;
-}
-
-h1{
-  font-size: 40px;
-  color: #FFFFFF;
-  font-weight: 400;
-}
-
-h1, h2 {
-  text-align: center;
 }
 
 ul {
@@ -40,17 +30,18 @@ li p {
 }
 
 li:hover, li[data-selected="true"] {
-  background: rgba(255, 255, 255, 0.4);
+  color: #F19EDC;
   cursor: pointer;
 }
 
-a[role='button']{
+button, a[role='button']{
   display: block;
   cursor: pointer;
 
   width: 250px;
   height: 55px;
   text-align: center;
+  border: none;
   border-radius: 10px;
   background-color: #382AD6;
   padding: 18px 0;
@@ -223,7 +214,35 @@ a[role='disabled-button']{
  text-align: center;
 }
 
+#conjugation-game .content h1{
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+} 
 
+#conjugation-game .content p{
+  font-size: 16px;
+  text-align: center;
+}
+
+#conjugation-game .content li p{
+  background-color: #2E3856;
+  border-radius: 10px;
+}
+
+#conjugation-game .content ul{
+  padding-top: 5%;
+  padding-bottom: 100px;
+}
+
+#conjugation-game .top-info{
+  padding-bottom: 30px;
+}
+
+#conjugation-game .top-info p{
+  text-align: left;
+  font-size: 12px;
+}
 
 
 
