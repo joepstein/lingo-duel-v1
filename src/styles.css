@@ -154,6 +154,7 @@ a[role='disabled-button']{
 }
 
 
+
 /*
 
 ######
@@ -161,6 +162,8 @@ a[role='disabled-button']{
 ######
 
 */
+
+
 
 #skill-choice-page .content{
   display: flex;
@@ -184,6 +187,40 @@ a[role='disabled-button']{
 #skill-choice-page a[role='button']{
   background-color: #0A092D;
   border: 1px solid white;
+}
+
+
+
+/*
+
+######
+## Skill Choice Page CSS
+######
+
+*/
+
+
+
+#conjugation-game{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+#conjugation-game .content{
+  visibility: hidden;
+  position: absolute;
+}
+
+#conjugation-game .ready{
+  display: none;
+  font-size: 24px;
+}
+
+#conjugation-game .intro-content p{
+ text-align: center;
 }
 
 

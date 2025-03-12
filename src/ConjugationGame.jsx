@@ -1,9 +1,15 @@
 import { useState, useEffect, useRef } from "react"
 import spanishVerbData from "/data/spanish-verb-data"
 
-export function LanguageGame(){
+export function ConjugationGame(){
 
 	const [conjugationGame, setConjugationGame] = useState({ targetVerb : '', conjugatedVerb : '', answerTense : '', elo : 0, tenseList : [], randomTenses : [] })
+
+	const contentRef = useRef()
+	const introContentRef = useRef()
+	const instructionsRef = useRef()
+	const readyRef = useRef()
+	const overlayRef = useRef()
 
 	const rating = useRef(0)
 	const playerElo = useRef(1200)
@@ -14,6 +20,38 @@ export function LanguageGame(){
 	useEffect(() => {
 	    const currentConjugationGame = getNewVerb(spanishVerbData)
 	    setConjugationGame({...currentConjugationGame})
+
+	    setTimeout(() => {
+	      overlayRef.current.classList.add('animate') // 1s
+
+	        setTimeout(() => {
+		    	overlayRef.current.classList.remove('animate')
+		    	instructionsRef.current.style.display = 'none'
+		    	readyRef.current.style.display = 'block'
+		    	overlayRef.current.classList.add('unanimate') // 1s
+
+		    	setTimeout(() => {
+			    	overlayRef.current.style.display = 'none'
+
+			    	readyRef.current.textContent = '...3'
+
+			    	setTimeout(() => {
+				    	readyRef.current.textContent = '...2'
+
+				    	setTimeout(() => {
+					    	readyRef.current.textContent = '1'
+					    	readyRef.current.style.fontSize = '48px'
+
+					    	setTimeout(() => {
+						    	introContentRef.current.style.display = 'none'
+						    	contentRef.current.style.position = 'static'
+						    	contentRef.current.style.visibility = 'visible'
+						    }, 1000)
+					    }, 1000)
+				    }, 1000)
+			    }, 2000)
+	    	}, 1000)
+	    }, 2000)
 	  }, [])
 
 
@@ -123,30 +161,37 @@ export function LanguageGame(){
 	return (
 		<>
 			<section id='conjugation-game'>
-				<h1>{conjugationGame.targetVerb}</h1>
-				<form onSubmit={checkAnswer} className="conugationForm">
-					<h2>{conjugationGame.conjugatedVerb}</h2>
-					<ul className="list">
-						{conjugationGame.randomTenses.map((tense, index) => {
-							return(
-								<li 
-									className='tense-option'
-									key={tense.id}
-									data-id={tense.id}
-									data-selected={tense.selected}
-									onClick = {() => selectTense(tense.id)} >
+				<div ref={introContentRef} className='intro-content'>
+					<p ref={instructionsRef}>To complete the assessment, you have 10 seconds for each round to select the correct choice.</p>
+					<p ref={readyRef} className='ready'>Are you ready?</p>
+					<div ref={overlayRef} id='overlay'></div>
+				</div>
+				<div ref={contentRef} className='content'>
+					<h1>{conjugationGame.targetVerb}</h1>
+					<form onSubmit={checkAnswer} className="conugationForm">
+						<h2>{conjugationGame.conjugatedVerb}</h2>
+						<ul className="list">
+							{conjugationGame.randomTenses.map((tense, index) => {
+								return(
+									<li 
+										className='tense-option'
+										key={tense.id}
+										data-id={tense.id}
+										data-selected={tense.selected}
+										onClick = {() => selectTense(tense.id)} >
 
-									<p>{tense.val}</p>
-								</li>
-							)
-						})}
-				    </ul>
-				    <button type="submit" className="submit-button">Submit</button>
-				    <p id="question-elo">The last question had a rating of: {questionElo.current}</p>
-				    <p id="current-elo">Your current elo is: {playerElo.current}</p>
-				    <p id="prev-answer">Your last answer was: {prevAnswer.current}</p>
-				    <p id="rating-change">You gained/lost: {eloDifference.current} rating points</p>
-				</form>
+										<p>{tense.val}</p>
+									</li>
+								)
+							})}
+					    </ul>
+					    <button type="submit" className="submit-button">Submit</button>
+					    <p id="question-elo">The last question had a rating of: {questionElo.current}</p>
+					    <p id="current-elo">Your current elo is: {playerElo.current}</p>
+					    <p id="prev-answer">Your last answer was: {prevAnswer.current}</p>
+					    <p id="rating-change">You gained/lost: {eloDifference.current} rating points</p>
+					</form>
+				</div>
 			</section>
 		</>
 	)
