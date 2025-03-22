@@ -228,6 +228,10 @@ a[role='disabled-button']{
   margin: 1vh 0;
 }
 
+#conjugation-game .content li{
+  margin: 2vh 0;
+}
+
 #conjugation-game .content li p{
   background-color: #2E3856;
   border-radius: 10px;
@@ -235,12 +239,13 @@ a[role='disabled-button']{
 
 #conjugation-game .content ul{
   padding-top: 2vh;
-  padding-bottom: 18vh;
+  padding-bottom: 16vh;
   margin: 0;
 }
 
 #conjugation-game .top-info{
-  padding-bottom: 10vh;
+  margin-top: 5px;
+  padding-bottom: 8vh;
   display: flex;
   justify-content: space-between;
 }
