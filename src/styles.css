@@ -7,13 +7,12 @@ body {
   background: #0A092D;
   color: white;
   max-width: 300px;
-  max-height: 600px;
   margin: 0 auto;
 }
 
 section {
   width: 300px;
-  height: 600px;
+  height: 100vh;
   margin: 0 auto;
 }
 
@@ -84,10 +83,12 @@ a[role='disabled-button']{
 }
 
 #welcome-page .initial-content{
-  padding-top: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  text-align: center;
 }
 
 #welcome-page .revealed-content{
@@ -96,7 +97,7 @@ a[role='disabled-button']{
 
 #welcome-page .revealed-content p{
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
@@ -105,7 +106,7 @@ a[role='disabled-button']{
 
 #welcome-page .revealed-content a{
   position: absolute;
-  top: 100%;
+  top: calc(100% - 18px);
   left: 50%;
   transform: translate(-50%, -100%);
 }
@@ -168,7 +169,7 @@ a[role='disabled-button']{
 
   width: 200px;
   padding-top: 20px;
-  padding-bottom: 60%;
+  padding-bottom: 30vh;
 }
 
 #skill-choice-page a{
@@ -185,7 +186,7 @@ a[role='disabled-button']{
 /*
 
 ######
-## Skill Choice Page CSS
+## Conjugation Page CSS
 ######
 
 */
@@ -218,11 +219,13 @@ a[role='disabled-button']{
   font-size: 16px;
   font-weight: 400;
   text-align: center;
+  margin: 1vh 0;
 } 
 
 #conjugation-game .content p{
   font-size: 16px;
   text-align: center;
+  margin: 1vh 0;
 }
 
 #conjugation-game .content li p{
@@ -231,18 +234,40 @@ a[role='disabled-button']{
 }
 
 #conjugation-game .content ul{
-  padding-top: 5%;
-  padding-bottom: 100px;
+  padding-top: 2vh;
+  padding-bottom: 18vh;
+  margin: 0;
 }
 
 #conjugation-game .top-info{
-  padding-bottom: 30px;
+  padding-bottom: 10vh;
+  display: flex;
+  justify-content: space-between;
 }
 
 #conjugation-game .top-info p{
   text-align: left;
   font-size: 12px;
 }
+
+#conjugation-game .round-timer{
+  width: 51px;
+  height: 51px;
+  background: white;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#conjugation-game .round-timer p{
+  color: black;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+
 
 
 

@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react"
-import spanishVerbData from "/data/spanish-verb-data"
+import { useState, useEffect, useRef } from 'react'
+import spanishVerbData from '/data/spanish-verb-data'
+import { RoundTimer } from './RoundTimer'
 
 export function ConjugationGame(){
 
@@ -20,6 +21,10 @@ export function ConjugationGame(){
 	useEffect(() => {
 	    const currentConjugationGame = getNewVerb(spanishVerbData)
 	    setConjugationGame({...currentConjugationGame})
+
+	    // introContentRef.current.style.display = 'none'
+    	// contentRef.current.style.position = 'static'
+    	// contentRef.current.style.visibility = 'visible'
 
 	    setTimeout(() => {
 	      overlayRef.current.classList.add('animate') // 1s
@@ -169,6 +174,7 @@ export function ConjugationGame(){
 				<div ref={contentRef} className='content'>
 					<div className='top-info'>
 						<p>1 of 10</p>
+						{<RoundTimer seconds='10' />}
 					</div>
 					<h1>Select the correct conjugation for</h1>
 					<p><strong>{conjugationGame.conjugatedVerb}</strong> ({conjugationGame.targetVerb})</p>
@@ -189,7 +195,7 @@ export function ConjugationGame(){
 							})}
 					    </ul>
 					    <button type="submit">Submit</button>
-{/*					    <p id="question-elo">The last question had a rating of: {questionElo.current}</p>
+					    {/*<p id="question-elo">The last question had a rating of: {questionElo.current}</p>
 					    <p id="current-elo">Your current elo is: {playerElo.current}</p>
 					    <p id="prev-answer">Your last answer was: {prevAnswer.current}</p>
 					    <p id="rating-change">You gained/lost: {eloDifference.current} rating points</p>*/}
